@@ -2,12 +2,23 @@ const express = require('express');
 const dotenv = require('dotenv');
 const connectDB = require('./src/config/db');
 
+const cors = require('cors');
+
+
+
 dotenv.config();
 const app = express();
 
 // Database connection
 connectDB();
 
+
+// Allow requests from http://localhost:3000
+app.use(cors({
+    origin: 'http://localhost:3000', // Replace with your frontend's URL
+    methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allowed HTTP methods
+    credentials: true, // Allow cookies if needed
+  }));
 // Middleware
 app.use(express.json());
 console.log("i am her eno")
