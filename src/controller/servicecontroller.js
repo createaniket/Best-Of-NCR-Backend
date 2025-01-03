@@ -1,5 +1,5 @@
 const Service = require('../models/Service');
-const cloudinary = require('../config/cloudinaryconfig'); // Cloudinary configuration
+const cloudinary = require('../mycnfg/cloudinaryconfig'); // Cloudinary configuration
 
 // Add a new service
 exports.addService = async (req, res) => {

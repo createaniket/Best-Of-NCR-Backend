@@ -1,5 +1,5 @@
 const Shop = require('../models/Shop');
-const cloudinary = require('../config/cloudinaryconfig');
+const cloudinary = require('../mycnfg/cloudinaryconfig');
 const axios = require('axios');
 
 exports.AddShop = async (req, res) => {
