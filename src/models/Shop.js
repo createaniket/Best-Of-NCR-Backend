@@ -3,7 +3,14 @@ const mongoose = require('mongoose');
 const shopSchema = new mongoose.Schema({
   name: { type: String, required: true },
   location: { type: String, required: true },
-  address:{ type: String, required: true },
+  address: {
+    line1: { type: String, required: true },
+    line2: { type: String },
+    city: { type: String, required: true },
+    state: { type: String, required: true },
+    country: { type: String, required: true },
+    pincode: { type: String, required: true },
+  },
   bio: { type: String },
   contact: { type: String },
   services: [
