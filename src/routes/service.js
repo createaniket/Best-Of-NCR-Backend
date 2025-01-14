@@ -17,6 +17,9 @@ router.get('/', serviceController.getAllServices);
 // Get a single service by ID
 router.get('/:serviceId', serviceController.getServiceById);
 
+router.get('/category/:catId', serviceController.getServiceByCategoryId);
+
+
 // Update a service
 router.put('/:serviceId', upload.single('image'), serviceController.updateService);
 

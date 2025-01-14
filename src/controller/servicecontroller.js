@@ -70,6 +70,24 @@ exports.getServiceById = async (req, res) => {
 };
 
 
+
+// Get a service by ID
+exports.getServiceByCategoryId = async (req, res) => {
+  try {
+    const { CategoryId } = req.params;
+    const service = await Service.find({category:CategoryId}).populate('category', 'name').populate('shops', 'name location');
+    if (!service) {
+      return res.status(404).json({ message: 'Service not found.' });
+    }
+    res.status(200).json(service);
+  } catch (error) {
+    console.error('Error fetching service:', error);
+    res.status(500).json({ message: 'Failed to fetch service.', error: error.message });
+  }
+};
+
+
+
 // Update a service
 exports.updateService = async (req, res) => {
   try {
